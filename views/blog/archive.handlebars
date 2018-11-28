@@ -1,0 +1,23 @@
+{{> header page-title="Blog" }}
+<div class="wrapper">
+  <div class="blog-archive__container">
+    {{# each blogEntries }}
+      <div class="blog-archive__item">
+        <a href="/blog/{{ this._id }}">
+          <div class="blog-archive__item-img">
+            <img src="{{ this.imagePath }}" alt="Blog Cover"/>
+          </div>
+          <div class="blog-archive__item-title">
+            {{ this.title }}
+          </div>
+          <div class="blog-archive__item-timestamp">
+            {{ formatTimestamp this.createdAt 'withoutTime' }}
+          </div>
+          <div class="blog-archive__item-excerpt">
+            {{ this.excerpt }}
+          </div>
+        </a>
+      </div>
+    {{/each }}
+  </div>
+</div>

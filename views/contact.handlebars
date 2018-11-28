@@ -1,0 +1,24 @@
+{{> header page-title="Contact Us" }}
+<div class="wrapper">
+  <section class="contact">
+    <p>Please use the contact form below for inquiries, and a representative will get back to you as soon as possible. Alternatively, you may reach us by telephone at 1-800-234-5678 telephone from 7AM to 9PM PST.</p>
+    <p class="message-status">{{ msgStatus }}</p>
+    <form class="contact-form" action="/contact" method="post">
+      <div class="contact-form__name">
+        <label for="name">Name <span class="required">*</span> </label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="contact-form__email">
+        <label for="email">Email<span class="required">*</span></label>
+        <input type="text" name="email" required>
+      </div>
+      <div class="contact-form__message">
+        <textarea name="message" placeholder="Enter your message here." required></textarea>
+      </div>
+      <div class="contact-form__submit">
+        <input type="hidden" name="_csrf" value={{ csrfToken }}>
+        <button class="submit" type="submit" name="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+</div>

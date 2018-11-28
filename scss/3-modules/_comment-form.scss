@@ -1,0 +1,20 @@
+.comment-form input, textarea{
+  @extend %input;
+  display: block;
+  @include mq('medium') {
+    width: 75%;
+  }
+}
+
+.comment-form__message textarea {
+  height: 150px;
+}
+
+.comment-form__submit button {
+  @extend %btn;
+  background-color: $theme-color-gray;
+}
+
+.comment-form .required {
+  color: red;
+}

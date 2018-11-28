@@ -1,0 +1,40 @@
+.login-container, .register-container {
+  max-width: 500px;
+  margin: 0 auto;
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+  .alert {
+    color: red;
+    margin: 5px;
+  }
+}
+.user-form {
+  max-width: 400px;
+  margin: 15px auto;
+}
+
+
+.user-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.user-form input {
+  @extend %input;
+  width: 100%;
+}
+
+.user-form .submit {
+  @extend %btn;
+  background-color: $theme-color-green;
+  margin-top: 10px;
+}
+
+.user-form .required {
+  color: red;
+}

@@ -1,0 +1,58 @@
+<div class="wrapper">
+  <h1>Your Cart</h1>
+  <section class="cart">
+    {{# if products }}
+      <div class="cart-container">
+        <table>
+          <thead>
+            <th>Product Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+          </thead>
+          {{# each products}}
+          <tr>
+            <td>
+              <strong>{{ this.item.title }}</strong>
+            </td>
+            <td>
+              <span>${{ this.item.price }}</span>
+            </td>
+            <td>
+              <span class="cart__product-qty">{{ this.qty }}</span>
+            </td>
+            <td>
+              <a class="edit-qty cart-edit" href="/reduce/{{this.item._id}}">
+                <i class="fas fa-minus-square"></i>
+              </a>
+              <a class="edit-qty cart-edit" href="/add-to-cart/{{this.item._id}}">
+                <i class="fas fa-plus-square"></i>
+              </a>
+              <a class="edit-qty cart-edit" href="/remove/{{this.item._id}}">Remove</a>
+            </td>
+          </tr>
+          {{/each}}
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+              <strong class="cart__total-price">Total: ${{ totalPrice }}</strong>
+            </td>
+          </tr>
+        </table>
+        <hr>
+        <div>
+          <a href="/checkout" class="submit" type="button" name="checkout">Proceed to Checkout</a>
+        </div>
+      </div>
+    {{ else }}
+      <div class="message__empty-cart">
+        <h3>There are no items in your cart.</h3>
+      </div>
+    {{/if}}
+  </section>
+</div>
+
+{{#section 'script'}}
+  <script src="/js/cart.js"></script>
+{{/section}}

@@ -1,0 +1,64 @@
+<section class="hero">
+  <div class="headline">
+    <img src="img/fortheloveofcoffee.svg" alt="For the love of coffee"/>
+  </div>
+  <a class="hero__btn" href="menu">
+    See Our Menu
+  </a>
+</section>
+<div class="wrapper">
+  <section class="featured-products">
+    <h2>Featured Products</h2>
+      <div class="featured-products__container">
+        {{#each featuredProducts}}
+        <div class="featured-products__item">
+          <a href="products">
+            <div class="featured-products__item-img">
+              <img src={{ this.imagePath }} alt="Featured Product">
+            </div>
+            <div class="products__item-title">{{ this.title }}</div>
+          </a>
+        </div>
+        {{/each}}
+    </div>
+    <a class="featured-products__btn" href="products">Shop Now</a>
+  </section>
+  <section class="recent-news">
+    <h2>Recent News</h2>
+    <div class="recent-news__container">
+      <div class="recent-news__img">
+        <img src="/img/cafe-pic.jpg" alt="Grand Opening Anaheim"/>
+      </div>
+      <div class="recent-news__info">
+        <div>
+          <h3>Anaheim Location Grand Opening</h3>
+          <p>Six years after the opening of our flagship store, we've taken the next step in expanding our business and spreading the coffee love. Located in the heart of Orange County, we're excited to bring you the quality coffee we know and love.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="blog-home">
+    <h2>Read the Blog</h2>
+    <div class="blog-home__container">
+      {{# each blogEntries }}
+      <article class="blog-home__item">
+        <a href="blog/{{ this._id }}">
+          <div class="blog-home__item-img">
+            <img src={{ this.imagePath }} alt="Blog Cover Image">
+          </div>
+          <div class="blog-home__item-info">
+            <div class="blog-home__item-title">
+              {{this.title}}
+            </div>
+            <div class="blog-home__item-date">
+              {{this.date}}
+            </div>
+          </div>
+        </a>
+      </article>
+      {{/each }}
+    </div>
+  </section>
+
+
+</div>

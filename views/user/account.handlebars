@@ -1,0 +1,33 @@
+{{> header page-title="My Account" }}
+<div class="wrapper">
+  <ul class="order-history">
+    <h2>Order History</h2>
+    {{# each orders }}
+      <li class="order-history__item">
+        <h3 class="order-history__item-date">
+          {{ this.timestamp }}
+        </h3>
+        <table class="order-history__item-table">
+          <thead>
+            <td>Product</td>
+            <td>Quantity</td>
+            <td>Price</td>
+          </thead>
+          <tbody>
+            {{# each this.items }}
+            <tr>
+              <td>{{ this.item.title}}</td>
+              <td>{{ this.qty }}</td>
+              <td>${{ this.price }}</td>
+            </tr>
+            {{/ each}}
+          </tbody>
+          <tfoot class="order-history__item-total">
+            <td colspan="2">Total</td>
+            <td>${{ this.cart.totalPrice }}</td>
+          </tfoot>
+        </table>
+      </li>
+    {{/ each}}
+  </ul>
+</div>

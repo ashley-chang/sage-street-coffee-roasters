@@ -1,0 +1,35 @@
+.blog-archive__container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.blog-archive__item {
+  grid-column-start: span 3;
+  padding: 15px;
+  @include mq('medium') {
+    grid-column-start: span 1;
+  }
+}
+
+.blog-archive__item-title {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  margin-top: 10px;
+}
+
+.blog-archive__item-timestamp {
+  font-style: italic;
+}
+
+.blog-archive__item-img {
+  width: 100%;
+  height: 250px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

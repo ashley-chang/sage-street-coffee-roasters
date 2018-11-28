@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-stroke: 0 0 0 transparent;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #3b3835;
+  line-height: 1.75em;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 30em;
+  @include mq('medium') {
+    padding-bottom: 12em;
+  }
+}
+
+p {
+  margin: 15px 0;
+}
+
+a {
+  text-decoration: none;
+  color: $theme-color-gray;
+  &:hover {
+    color: lighten($theme-color-gray, 20%);
+  }
+}

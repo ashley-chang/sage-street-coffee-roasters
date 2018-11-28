@@ -1,0 +1,34 @@
+section.decorative-header{
+  background: url('/img/coffee-beans-926837.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 25vh;
+  max-height: 200px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  @include dark-overlay(0.45);
+  color: white;
+  div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.page-title {
+  text-align: center;
+  font-size: 30px;
+  margin: 10px 0;
+  letter-spacing: 0.03em;
+}
+
+.page-sub-title {
+  text-align: center;
+  letter-spacing: 0.05em;
+  margin: 10px 0;
+  font-weight: 400;
+  text-transform: uppercase;
+}

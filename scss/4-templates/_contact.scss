@@ -1,0 +1,32 @@
+.contact {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.contact .message-status {
+  color: red;
+}
+
+.contact-form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.contact-form input, .contact-form__message textarea {
+  width: 100%;
+  @extend %input;
+}
+
+.contact-form__message textarea {
+  height: 150px;
+  margin-top: 15px;
+}
+
+.contact-form__submit .submit {
+  @extend %btn;
+  background-color: $theme-color-gray;
+}
+
+.contact-form .required {
+  color: red;
+}

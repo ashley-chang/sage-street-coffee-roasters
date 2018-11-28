@@ -1,0 +1,32 @@
+.order-history {
+  margin-top: 20px;
+  list-style: none;
+}
+
+.order-history__item {
+  margin-top: 20px;
+}
+
+.order-history__item-date {
+  color: $theme-color-green;
+  font-size: 22px;
+}
+
+.order-history__item-table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  thead, td {
+    border: 1px solid lighten($theme-color-gray, 40%);
+  }
+  thead {
+    font-weight: 700;
+  }
+  td {
+    padding: 5px;
+  }
+}
+
+.order-history__item-total {
+  font-weight: 700;
+}

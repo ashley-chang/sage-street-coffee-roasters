@@ -1,0 +1,35 @@
+// ************************
+// Responsive media queries
+// ************************
+
+$breakpoints: (
+  'small' : '(max-width: 590px)',
+  'medium' : '(min-width: 591px)',
+  'large' : '(min-width: 1201px)'
+);
+
+@mixin mq($breakpoint){
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and #{map-get($breakpoints, $breakpoint)}{
+      @content;
+    }
+  } @else {
+    @warn "No value could be retrieved from `#{$breakpoint}`"
+  }
+};
+
+// ************************
+// Dark overlay for pictures
+// ************************
+
+@mixin dark-overlay($opacity) {
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0, $opacity);
+  }
+}

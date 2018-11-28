@@ -1,0 +1,63 @@
+.products__container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 12px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.products__item {
+  grid-column-start: span 6;
+  text-align: center;
+  padding: 15px 5px;
+  background-color: white;
+  @include mq('medium') {
+    grid-column-start: span 4;
+  }
+  @include mq('large') {
+    grid-column-start: span 3;
+  }
+}
+
+.products__item-img {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.products__item-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.products__item-price {
+  font-size: 18px;
+}
+
+.products__item-btn {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Istok Web', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  background-color: $theme-color-yellow;
+  color: white;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  &:hover {
+    color: white;
+    background-color: darken($theme-color-yellow, 20%);
+  }
+}

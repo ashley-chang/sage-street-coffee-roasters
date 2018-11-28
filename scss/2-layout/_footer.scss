@@ -1,0 +1,56 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: $theme-color-brown;
+  color: white;
+  padding: 10px 10px;
+  // margin-top: 80px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  div {
+    flex: 0 0 20%;
+    margin: 10px;
+  }
+  ul {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+  strong {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  @include mq('medium') {
+    flex-direction: row;
+  }
+}
+
+.footer__logo {
+  margin-left: 0;
+  @include mq('medium') {
+    margin: 15px;
+  }
+}
+
+.footer__address {
+
+}
+
+.footer__links {
+
+}
+
+.footer__social {
+  li {
+    display: inline-block;
+  }
+  i {
+    font-size: 26px;
+    margin-right: 12px;
+    margin-top: 5px;
+  }
+}

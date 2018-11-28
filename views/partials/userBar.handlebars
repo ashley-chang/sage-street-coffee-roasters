@@ -1,0 +1,19 @@
+<div class="userBar">
+  <div class="userBar__left">
+    <span>1-800-234-5678</span>
+    <a href="/blog" class="userBar__blog">Blog</a>
+  </div>
+  <div class="userBar__right">
+    {{# if loggedIn}}
+      <a href="/account" class="userBar__account"><i class="fas fa-user"></i>My Account</a>
+      <a href="/logout" class="userBar__logout">Logout</a>
+      {{ else }}
+      <a href="/login" class="userBar__login"><i class="fas fa-user"></i>Login</a>
+    {{/if}}
+    <a href="/cart" class="userBar__cart">
+      <i class="fas fa-shopping-cart"></i>
+      Cart
+      <span class="userBar__cart-totalQty">{{ session.cart.totalQty }}</span>
+    </a>
+  </div>
+</div>

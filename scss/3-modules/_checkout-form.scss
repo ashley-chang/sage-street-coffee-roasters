@@ -1,0 +1,63 @@
+.checkout-form {
+  max-width: 500px;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.checkout-form fieldset {
+  padding: 10px 15px 15px 15px;
+  border: none;
+  legend {
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.checkout-form fieldset > div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  & > .full {
+    grid-column-start: span 4;
+  }
+  & > .half {
+    grid-column-start: span 4;
+    @include mq('medium') {
+      grid-column-start: span 2;
+    }
+  }
+}
+
+.checkout-form input[type="text"],
+.checkout-form__credit-card .credit-card {
+  @extend %input;
+}
+
+.checkout-form__billing-address-same {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.checkout-form input.required {
+  background-color: #fff2f2;
+  border-color: #af2f2f;
+}
+
+.checkout-form input:disabled {
+  background-color: #ebebeb;
+  color: #a1a1a1;
+}
+
+.checkout-form .submit {
+  @extend %btn;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: $theme-color-gray;
+}
+
+#error-message {
+  margin: 15px;
+  color: red;
+}

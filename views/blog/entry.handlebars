@@ -1,0 +1,52 @@
+<div class="wrapper">
+  <h1 class="blog-entry__title">{{ entry.title }}</h1>
+  <div class="blog-entry__meta">
+    <span class="blog-entry__date">{{ entry.date }}</span>&nbsp;//&nbsp;
+    <span class="blog-entry__comment-count">
+      <a href="#comments">{{ entry.comments.length}} Comments</a>
+    </span>
+  </div>
+  <div class="blog-entry__featured-img">
+    <img src={{ entry.imagePath }} />
+  </div>
+  <div class="blog-entry__content">
+    {{{ entry.content }}}
+  </div>
+  <form class="comment-form" action="/blog/{{ entry._id }}" method="post">
+    <h2>Leave A Comment</h2>
+    <div class="comment-form__user">
+      <label for="user">Name <span class="required">*</span> </label>
+      <input type="text" name="user" required >
+    </div>
+    <div class="comment-form__message">
+      <label for="message">Comment <span class="required">*</span></label>
+      <textarea name="message" placeholder="Enter your message here" required></textarea>
+    </div>
+    <div class="comment-form__submit">
+      <input type="hidden" id="comment-csrf" name="_csrf" value="{{ csrfToken }}">
+      <button class="submit" type="submit">Post</button>
+    </div>
+  </form>
+  <section class="comments" id="comments">
+    <h2 class="comments__header">{{ entry.comments.length}} Comments</h2>
+    <ul class="comments__list">
+      {{#each entry.comments}}
+      <li class="comments__item">
+        <div class="comments__item-user">
+          {{ this.user }}
+        </div>
+        <div class="comments__item-timestamp">
+          {{ formatTimestamp this.createdAt }}
+        </div>
+        <div class="comments__item-message">
+          {{ this.message }}
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </section>
+</div>
+
+{{#section 'script'}}
+<script src="/js/comment.js"></script>
+{{/section}}

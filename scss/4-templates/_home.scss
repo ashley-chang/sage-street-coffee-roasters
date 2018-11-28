@@ -1,0 +1,225 @@
+section:last-of-type {
+  margin-bottom: 0;
+}
+
+.hero {
+  position: relative;
+  height: calc(100vh - 70px);
+  max-height: 600px;
+  width: 100vw;
+  background: no-repeat url('/img/coffee-690054.jpg');
+  background-size: cover;
+  background-position: right 75%;
+  @include dark-overlay(0.3);
+  @include mq('medium'){
+    max-height: 1000px;
+    background-position: 70% 75%;
+  }
+}
+
+.headline img {
+  width: 75%;
+  height: 75%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  @include mq('medium') {
+    // min-width: 350px;
+    width: 60%;
+    height: 85%;
+    // transform: translateY(-50%) translateX(0);
+    left: 0%;
+    transform: translateY(-50%) translateX(0);
+    top: 40%;
+  }
+}
+
+.hero__info {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  text-transform: lowercase;
+  // width: 25%;
+  top: 78%;
+  left: 15%;
+  transform: translateY(-50%);
+  // background-color: rgba(255,255,255,0.4);
+}
+
+.hero__btn {
+  color: gray;
+  background-color: rgba(255,255,255,1);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  // font-size: 18px;
+  padding: 0.4em 0.75em;
+  border: 3px solid white;
+  position: absolute;
+  position-anchor: 50% 50%;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mq('medium') {
+    font-size: calc(18px + .2vw);
+    top: 80%;
+    left: 22%;
+    transform: translateX(0);
+  }
+  @include mq('large') {
+    font-size: 24px;
+  }
+  &:hover {
+    background-color: rgba(255,255,255,0);
+    color: white;
+  }
+}
+
+.featured-products, .recent-news, .blog-home {
+  margin-bottom: 50px;
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  a {
+    display: inline-block;
+    text-decoration: none;
+    transition: 0.5s all ease;
+    &:hover {
+      color: $theme-color-gray;
+    }
+  }
+}
+
+.featured-products {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.featured-products__container, .blog-home__container {
+  display: grid;
+  margin: 0 auto;
+  width: 80%;
+  grid-gap: 2%;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.featured-products__item, .blog-home__item {
+  grid-column-start: span 9;
+  margin: 15px 0;
+  text-align: center;
+  a {
+    color: inherit;
+  }
+  @include mq('medium') {
+    grid-column-start: span 3;
+  }
+}
+
+.featured-products__item {
+  padding: 15px 5px;
+}
+
+.blog-home__item {
+  background-color: lighten($theme-color-yellow, 20%);
+  transition: 0.5s all ease;
+  &:hover {
+    background-color: $theme-color-yellow;
+  }
+}
+
+.featured-products__item-img, .blog-home__item-img {
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.featured-products__item-title, .blog-home__item-title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+a.featured-products__btn {
+  @extend %btn;
+  font-size: 20px;
+  margin: 0 auto;
+  background-color: $theme-color-yellow;
+  &:hover {
+    color: white;
+    background-color: darken($theme-color-yellow, 15%);
+  }
+}
+
+.recent-news__container {
+  height: 75vh;
+  max-height: 600px;
+  width: 95%;
+  margin: 25px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  div {
+    flex: 0 0 100%;
+    height: 100%;
+  }
+  @include mq('medium') {
+    flex-direction: row;
+    div {
+      flex: 0 0 50%;
+      height: 100%;
+    }
+  }
+}
+
+.recent-news__img {
+  display: none;
+  @include mq('medium') {
+    display: block;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.recent-news__info {
+  background-color: lighten($theme-color-green, 25%);
+  color: white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  div {
+    flex: 0 0 85%;
+    height: 85%;
+    border: 10px solid white;
+    padding: 4%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  h3 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+
+.blog-home__item-info {
+  padding: 5px 15px 15px 15px;
+}

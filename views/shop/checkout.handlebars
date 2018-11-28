@@ -1,0 +1,110 @@
+<div class="wrapper">
+  <h1>Checkout</h1>
+  <h3>Your Total: ${{ total }}</h3>
+  <form id="checkout-form" class="checkout-form" action="/checkout" method="post">
+    <div id="error-message">
+      {{#if errorMsg }}
+        {{ errorMsg }}
+      {{/if }}
+    </div>
+    <!-- need to include placeholder support for IE and older browsers-->
+    <fieldset>
+      <legend>Shipping Information</legend>
+      <div class="checkout-form__name">
+        <div class="half">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" required>
+        </div>
+        <div class="half">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" required>
+        </div>
+      </div>
+      <div class="checkout-form__shipping-address">
+        <div class="full">
+          <label for="shipping_address_street">Street Address</label>
+          <input type="text" name="shipping_address_street" required>
+        </div>
+        <div class="full">
+          <label for="shipping_address_apt_number">Apartment/Building No.</label>
+          <input type="text" name="shipping_address_apt_number">
+        </div>
+        <div class="full">
+          <label for="shipping_address_city">City</label>
+          <input type="text" name="shipping_address_city" required>
+        </div>
+        <div class="half">
+          <label for="shipping_address_zipcode">Zipcode</label>
+          <input type="text" name="shipping_address_zipcode" required>
+        </div>
+        <div class="half">
+          <label for="shipping_address_state">State</label>
+          <input type="text" name="shipping_address_state" required>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Billing Information</legend>
+      <div class="checkout-form__cardholder-name">
+        <div class="half">
+          <label for="cardholder_first_name">First Name</label>
+          <input type="text" name="cardholder_first_name" required>
+        </div>
+        <div class="half">
+          <label for="cardholder_last_name">Last Name</label>
+          <input type="text" name="cardholder_last_name" required>
+        </div>
+      </div>
+      <div class="checkout-form__credit-card">
+        <div class="full">
+            <label for="card-element">
+              Credit or Debit Card
+            </label>
+            <div class="credit-card">
+              <div id="card-element">
+                <!-- A Stripe Element will be inserted here. -->
+              </div>
+              <!-- Used to display Element errors. -->
+              <div id="card-errors" role="alert"></div>
+            </div>
+        </div>
+      </div>
+      <div class="checkout-form__billing-address-same">
+        <div class="full">
+          <label for="billing_address_same">Billing address is same as shipping address</label>
+          <input type="checkbox" name="billing_address_same">
+        </div>
+      </div>
+      <div class="checkout-form__billing-address">
+        <div class="full">
+          <label for="billing_address_street">Street Address</label>
+          <input type="text" name="billing_address_street" required >
+        </div>
+        <div class="full">
+          <label for="billing_address_apt_number">Apartment/Building No.</label>
+          <input type="text" name="billing_address_apt_number">
+        </div>
+        <div class="full">
+          <label for="billing_address_city">City</label>
+          <input type="text" name="billing_address_city" required>
+        </div>
+        <div class="half">
+          <label for="billing_address_zipcode">Zipcode</label>
+          <input type="text" name="billing_address_zipcode" required>
+        </div>
+        <div class="half">
+          <label for="billing_address_state">State</label>
+          <input type="text" name="billing_address_state" required>
+        </div>
+      </div>
+    </fieldset>
+    <div class="full">
+      <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+      <button class="submit" type="submit">Confirm Purchase</button>
+    </div>
+  </form>  
+</div>
+
+{{#section 'script'}}
+  <script src="js/checkout.js"></script>
+{{/section}}

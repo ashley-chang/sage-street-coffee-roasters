@@ -1,0 +1,19 @@
+{{> header page-title="Shop Our Collection" page-sub-title=(concat products.length 'products') }}
+<div class="wrapper">
+  <div class="products__container">
+    {{# each products }}
+      <div class="products__item">
+        <div class="products__item-img">
+          <img src="{{ this.imagePath }}" alt="item"/>
+        </div>
+        <div class="products__item-title">{{ this.title }}</div>
+        <div class="products__item-price">${{ this.price }}</div>
+        <a class="products__item-btn edit-qty" href="/add-to-cart/{{this._id}}">Add to Cart</a>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+{{#section 'script'}}
+  <script src="js/cart.js"></script>
+{{/section}}

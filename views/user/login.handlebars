@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="login-container">
+    <h1>Customer Login</h1>
+    {{#if hasErrors}}
+      <div class="alert">
+        {{#each messages}}
+          <p>{{ this }}</p>
+        {{/each}}
+      </div>
+    {{/if }}
+    <form class="user-form" action="/login" method="post">
+      <div class="user-form__email">
+        <label for="email">Email Address <span class="required">*</span></label>
+        <input type="text" name="email" required/>
+      </div>
+      <div class="user-form__password">
+        <label for="password">Password <span class="required">*</span></label>
+        <input type="password" name="password" required />
+      </div>
+      <div class="user-form__submit">
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button class="submit" type="submit">Login</button>
+      </div>
+    </form>
+    <p>Don't have an account? <a href="/register">Sign Up</a></p>
+  </div>
+</div>
