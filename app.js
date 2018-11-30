@@ -13,6 +13,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MongoStore = require('connect-mongo')(session);
 const nodeMailer = require('nodemailer');
+const compression = require('compression');
 
 const Product = require('./models/product');
 const Cart = require('./models/cart');
@@ -25,6 +26,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 const csrfProtection = csrf();
 
+app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
@@ -189,9 +191,9 @@ app.post('/checkout', isLoggedIn, (req, res) => {
 
 app.get('/', (req, res) => {
   Product.find(null, null, {limit: 3}, function(err, products) {
-    if (err) return res.render('500');
+    if (err) return res.status(500).render('oops');
     BlogEntry.find(null, null, {limit: 3}, function(err, entries) {
-      if (err) return res.render('500');
+      if (err) return res.status(500).render('oops');
       res.render('home', {
         title: 'Sage Street Coffee Roasters - Home',
         featuredProducts: products,
@@ -253,7 +255,7 @@ app.post('/contact', (req, res) => {
 
 app.get('/products', (req, res) => {
   Product.find((err, docs) => {
-    if (err) return res.render('500');
+    if (err) return res.status(500).render('oops');
     res.render('shop/products', {
       title: 'Sage Street Coffee Roasters - Products',
       products: docs
@@ -393,7 +395,7 @@ app.post('/blog/:id', (req, res) => {
     };
     const formattedTimestamp = comment.createdAt.toLocaleString('en-US', timeOptions);
     BlogEntry.findOneAndUpdate({ _id: req.params.id }, { $push: {comments: comment._id }}, (err, result) => {
-      if (err) return res.render('500');
+      if (err) return res.status(500).render('oops');
       res.send({
         comment,
         commentsLength: result.comments.length,
