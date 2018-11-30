@@ -1,1 +1,0 @@
-window.onload=function(n){const e=document.getElementsByClassName("nav__icon")[0],o=document.querySelector(".nav__links ul");e.addEventListener("click",function(){o.classList.toggle("showing")})};
