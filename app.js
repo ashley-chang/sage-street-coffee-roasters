@@ -41,8 +41,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(csrfProtection);
 
-app.use(express.static(path.join(__dirname, "public")));
-mongoose.connect('mongodb://localhost:27017/shopping');
+app.use(express.static(path.join(__dirname, "dist")));
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/shopping');
 require('./config/passport');
 
 app.engine('handlebars', exphbs({
