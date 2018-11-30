@@ -2,7 +2,7 @@
 const Product = require('../models/product');
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGDB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 //create a product
 const products = [
