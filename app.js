@@ -42,7 +42,7 @@ app.use(passport.session());
 app.use(csrfProtection);
 
 app.use(express.static(path.join(__dirname, "dist")));
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/shopping').then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to Database");
 }).catch((err) => {
   console.log("Not connected to Database: ", err);
