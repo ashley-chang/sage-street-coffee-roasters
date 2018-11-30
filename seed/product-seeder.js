@@ -1,8 +1,8 @@
 // import the model we're gonna use
 const Product = require('../models/product');
-
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/shopping');
+
+mongoose.connect(process.env.MONGDB_URI);
 
 //create a product
 const products = [
