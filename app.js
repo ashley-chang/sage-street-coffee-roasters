@@ -41,7 +41,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(csrfProtection);
 
-app.use(express.static(path.join(__dirname, "dist")));
+app.use(express.static(path.join(__dirname, "public")));
 mongoose.connect(process.env.MONGODB_URI).then(() => {
   console.log("Connected to Database");
 }).catch((err) => {
